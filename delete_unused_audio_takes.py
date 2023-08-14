@@ -7,6 +7,7 @@ Example usage: delete_unused_audio_takes.py
 
 import re
 import os
+import sys
 
 from python_get_resolve import GetResolve
 
@@ -54,6 +55,11 @@ def DeleteUnusedAudioTakes(mediaPool, folder):
 
 # Get currently open project
 resolve = GetResolve()
+
+if resolve == None:
+  print("Resolve is not running")
+  sys.exit(0)
+
 projectManager = resolve.GetProjectManager()
 project = projectManager.GetCurrentProject()
 mediaPool = project.GetMediaPool()
