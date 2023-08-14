@@ -58,11 +58,13 @@ projectManager = resolve.GetProjectManager()
 project = projectManager.GetCurrentProject()
 mediaPool = project.GetMediaPool()
 
-print("Unused audio takes for project '" + project.GetName() +"':")
+print("\nUnused audio takes for project '" + project.GetName() +"':\n")
 count = DisplayUnusedAudioTakes(mediaPool.GetRootFolder(), "  ")
 
 if count > 0:
-  user_input = input("Delete " + str(count) + " items from media pool AND disk? [y/N]")
+  user_input = input("\nDelete " + str(count) + " items from media pool AND disk? [y/N]")
 
   if user_input.lower() == 'y' or user_input.lower() == 'yes':
     DeleteUnusedAudioTakes(mediaPool, mediaPool.GetRootFolder())
+else:
+  print("\nNothing to do.")
