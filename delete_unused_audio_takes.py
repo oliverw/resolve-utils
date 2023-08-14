@@ -58,7 +58,7 @@ projectManager = resolve.GetProjectManager()
 project = projectManager.GetCurrentProject()
 mediaPool = project.GetMediaPool()
 
-print("\nUnused audio takes for project '" + project.GetName() +"':\n")
+print("Unused audio takes for project '" + project.GetName() +"':\n")
 count = DisplayUnusedAudioTakes(mediaPool.GetRootFolder(), "  ")
 
 if count > 0:
